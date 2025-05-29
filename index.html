@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Squaso®</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <video autoplay muted loop id="bg-video">
+    <source src="assets/background.mp4" type="video/mp4"
+      onerror="this.parentElement.style.backgroundColor='#333'; this.parentElement.innerHTML='<p style=\'color:white; text-align:center; padding-top: 40vh;\'>Video de fondo no encontrado.</p>';">
+    Tu navegador no soporta la etiqueta de video.
+  </video>
+
+  <div class="overlay" id="overlay">
+    <div class="menu-container" id="menu-container">
+      <nav class="menu" id="menu">
+        <a href="#" class="menu-item menu-item-bold" id="squaso-btn">Squaso®</a>
+        <div class="menu-item-projects-group">
+          <a href="#" class="menu-item menu-item-bold" id="projects-btn">Proyectos</a>
+          <div class="projects-submenu" id="projects-submenu">
+            <a href="#" class="submenu-item" data-project="alpha">La Esquina</a>
+            <a href="#" class="submenu-item" data-project="beta">Club Español</a>
+          </div>
+        </div>
+        <div class="menu-item-contact-group">
+          <a href="#" class="menu-item menu-item-bold" id="info-contact-btn">Info & Contacto</a>
+          <div class="contact-submenu" id="contact-submenu">
+            <span class="submenu-item-text">+849 514 2209</span>
+            <a href="https://www.instagram.com/diegoferrerrd" target="_blank" class="submenu-item">Instagram</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="project-details-container" id="project-details-container">
+      <div id="project-alpha-details" class="project-detail-content">
+        <h2>La Esquina Gastrobar</h2>
+        <p>La Esquina Gastrobar es un bar de tapas y un ícono culinario ubicado en Constanza, República Dominicana,
+          conocido por su variada gastronomía, ambiente único y cervezas artesanales.</p>
+        <div class="project-images">
+          <img src="assets/laesquina1.png" alt="Imagen del Proyecto Alfa 1"
+            onerror="this.src='https://placehold.co/300x200/ccc/000?text=Error+Imagen'; this.alt='Error al cargar imagen'">
+          <img src="assets/laesquina2.png" alt="Imagen del Proyecto Alfa 2"
+            onerror="this.src='https://placehold.co/300x200/ccc/000?text=Error+Imagen'; this.alt='Error al cargar imagen'">
+        </div>
+        <a href="https://www.laesquinard.com/" target="_blank" class="project-link">Ver pagina completa</a>
+      </div>
+      <div id="project-beta-details" class="project-detail-content">
+        <h2>Club Español de Constanza</h2>
+        <p>El Club Español Cultural de Constanza es un lugar de reunión y recreación para los habitantes de Constanza,
+          fundado por la colonia española en 1967 para mantener su integración.</p>
+
+        <div class="project-images">
+          <img src="assets/club1.png" alt="Imagen del Proyecto Gamma 1"
+            onerror="this.src='https://placehold.co/300x200/ccc/000?text=Error+Imagen'; this.alt='Error al cargar imagen'">
+
+          <img src="assets/club2.png" alt="Imagen del Proyecto Beta 1"
+            onerror="this.src='https://placehold.co/300x200/ccc/000?text=Error+Imagen'; this.alt='Error al cargar imagen'">
+        </div>
+        <a href="#" class="project-link">Ver Pagina completa</a>
+      </div>
+
+
+    </div>
+
+    <div class="info-contact-content-large" id="info-contact-content-large" style="display: none;">
+      <p>
+        Información de Contacto Detallada (si fuera necesaria en otro lugar):<br>
+        Email: contacto@squaso.com<br>
+        Teléfono: +123 456 7890<br>
+        Redes: @squaso_visuals
+      </p>
+    </div>
+  </div>
+
+  <div class="terms">
+    Al entrar, aceptas nuestros términos y condiciones.
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
