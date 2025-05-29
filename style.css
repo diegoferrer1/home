@@ -1,0 +1,295 @@
+/* css/style.css */
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow: hidden; /* Consider changing to auto or scroll for project details if content overflows */
+}
+
+/* Video */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  transition: opacity 1s ease;
+}
+
+/* Overlay */
+.overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centra el menu-container por defecto */
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding: 20px;
+  transition: justify-content 0.7s ease, padding-top 0.7s ease;
+}
+
+.overlay.view-active-top { /* Cuando el menú principal debe ir arriba (solo para detalles de proyecto) */
+  justify-content: flex-start;
+  padding-top: 5vh;
+}
+
+/* Contenedor del Menú Principal y Submenús */
+.menu-container {
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;
+    position: relative;  
+    z-index: 100;
+    transition: margin-bottom 0.5s ease;  
+}
+
+.menu-container.menu-is-top-style {
+    padding: 12px 25px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px); /* Optional: adds a blur effect to background */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin-bottom: 30px;  
+    width: auto;
+    max-width: 90%;
+}
+
+/* Menú Principal */
+.menu {
+  display: flex;
+  align-items: center;  
+  gap: 5px; /* Reducido para acomodar submenús más pegados */
+}
+
+.menu-item {
+  color: white;
+  text-decoration: none;
+  font-size: clamp(0.8rem, 2.2vw, 0.9rem);
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+  white-space: nowrap;  
+}
+.menu-item-bold {
+    font-weight: bold;
+}
+
+.menu-item:hover {
+  opacity: 0.8;
+  color: #b40a0a; /* Changed hover color for better visibility */
+  transform: scale(1.05);
+}
+
+/* Grupo de Proyectos (Botón Proyectos + Submenú) */
+.menu-item-projects-group, .menu-item-contact-group {
+    position: relative;  
+    display: flex;  
+    align-items: center;
+}
+
+/* Submenú de Proyectos */
+.projects-submenu {
+  display: none;  
+  flex-direction: row;  
+  gap: 10px;
+  padding-left: 10px;  
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.projects-submenu.visible {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Submenú de Contacto */
+.contact-submenu {
+  display: none; /* Oculto por defecto */
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.contact-submenu.visible {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.submenu-item, .submenu-item-text {
+  color: white;
+  text-decoration: none;
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+}
+.submenu-item-text { /* Para el número de teléfono que no es un link */
+    cursor: default;
+}
+
+.submenu-item:hover {
+  color: #b40a0a; /* Changed hover color */
+}
+
+
+/* Contenedor de Detalles de Proyectos */
+.project-details-container {
+  display: none;  
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;  
+  margin-top: 0;  
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+  z-index: 50;
+  flex-grow: 1;  
+  justify-content: flex-start; /* Changed from center to allow scrolling from top */
+  overflow-y: auto;  
+  max-height: calc(100vh - 10vh - 70px); /* Adjusted max-height considering menu and padding */
+  padding: 20px;
+  color: white;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.project-details-container::-webkit-scrollbar { /* Chrome, Safari, Opera */
+  display: none;
+}
+
+
+.project-details-container.visible {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-detail-content {
+  display: none;  
+  width: 100%;
+  text-align: left;  
+  padding-bottom: 20px; /* Added padding at the bottom */
+}
+
+.project-detail-content.visible {
+  display: block;
+}
+
+.project-detail-content h2 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.project-detail-content p {
+  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: center; /* Centered paragraph text */
+}
+
+.project-images {
+  height: auto;
+  width: 100%; /* MODIFIED: Was 250px, changed to 100% to use available space */
+  display: flex;
+  gap: 15px; /* This is the gap between images */
+  justify-content: center;
+  flex-wrap: wrap;  
+  margin-bottom: 20px;
+  margin-left: auto; /* Added to help center the block if it's narrower than parent */
+  margin-right: auto; /* Added to help center the block */
+}
+
+.project-images img {
+  /* MODIFIED: Changed from max-width: 100% to a calculated width */
+  width: calc(50% - 7.5px); /* Each image takes 50% of container width minus half of the gap (15px / 2 = 7.5px) */
+  max-width: 300px; /* ADDED: Optional - set a max individual image width if desired, e.g., if 50% is too large */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  object-fit: cover; /* ADDED: Ensures images cover the calculated space, cropping if necessary */
+}
+
+.project-link {
+  display: block; /* Changed to block to take full width and center text */
+  width: fit-content; /* Shrink to content width */
+  margin: 20px auto 0 auto; /* Center the button */
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px; /* Increased padding */
+  border: 1px solid #ffffff; /* White border */
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+.project-link:hover {
+  background-color: #ffffff; /* White background on hover */
+  color: #333; /* Dark text on hover */
+}
+
+/* Contenido de Info & Contacto GRANDE (ya no se usa activamente) */
+.info-contact-content-large {  
+  /* Estilos si se quisiera reutilizar, pero ahora está display: none inline */
+  max-width: 600px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: clamp(0.8rem, 2.2vw, 0.9rem);
+  color: white;
+  line-height: 1.6;
+  z-index: 50;
+}
+
+
+/* Términos */
+.terms {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.75rem;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  z-index: 1000;
+}
+.terms a {
+  color: #ffffff; /* Changed link color for better visibility */
+  transition: color 0.3s ease;
+} 
+
+
+/* Fallback para el video */
+#bg-video:error {
+    background-color: #333;
+}
+
+/* Estilos para centrar un párrafo en la pantalla con texto blanco */
+
+
+.parrafo-centrado-blanco {
+  color: white; /* Color del texto */
+  text-align: center; /* Centra el texto dentro del párrafo si es multilínea */
+  font-family: Arial, sans-serif; /* Fuente genérica */
+  font-size: 1.2em; /* Tamaño de fuente de ejemplo */
+  padding: 20px; /* Espaciado interno opcional */
+  max-width: 80%; /* Ancho máximo para que no ocupe toda la pantalla en dispositivos grandes */
+}
