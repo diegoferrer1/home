@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diego Ferrer - Web Developer & Designer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: VT323 (pixel) y Inter (sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* Asignación de fuentes */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Fondo con retícula de puntos para un look de blueprint */
+            background-color: #ffffff;
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 1.5rem 1.5rem;
+        }
+        /* La fuente pixelada para elementos clave */
+        .font-pixel {
+            font-family: 'VT323', monospace;
+        }
+
+        /* Estilo de tarjetas de proyecto, más esquemático */
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 2px dashed #9ca3af;
+            backdrop-filter: blur(4px);
+            border-radius: 0.5rem; /* Bordes ligeramente redondeados */
+        }
+
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- ===== Header / Navegación ===== -->
+    <header class="bg-white/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center relative">
+            <a href="#" class="text-4xl font-pixel text-gray-900">
+                DF<span class="text-blue-600">.</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold tracking-wider uppercase absolute left-1/2 -translate-x-1/2">
+                <a href="#about" class="hover:text-blue-600 transition-colors duration-300">Sobre mí</a>
+                <a href="#projects" class="hover:text-blue-600 transition-colors duration-300">Proyectos</a>
+                <a href="#contact" class="hover:text-blue-600 transition-colors duration-300">Contacto</a>
+            </nav>
+             <button id="mobile-menu-button" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Contenido del menú móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="#about" class="block py-3 px-6 text-center hover:bg-gray-100">Sobre mí</a>
+            <a href="#projects" class="block py-3 px-6 text-center hover:bg-gray-100">Proyectos</a>
+            <a href="#contact" class="block py-3 px-6 text-center hover:bg-gray-100">Contacto</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+        
+        <!-- ===== Sección Hero ===== -->
+        <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center pt-20">
+            <div class="max-w-4xl relative">
+                <h1 class="text-6xl md:text-8xl font-pixel text-gray-900">Diego Ferrer</h1>
+                <h2 class="text-2xl md:text-4xl font-semibold text-gray-700 mt-2">Desarrollador y Diseñador Web</h2>
+                <p class="mt-8 text-lg text-gray-600 max-w-2xl mx-auto">
+                    Convierto ideas en experiencias digitales funcionales. Exploro, construyo y a veces rompo cosas para crear soluciones mejores.
+                </p>
+                <div class="mt-8">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-none transition-colors duration-300 text-lg">
+                        CONTACTA
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Sección Sobre Mí ===== -->
+        <section id="about" class="py-20">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-4xl font-pixel text-gray-900 mb-4">SOBRE MÍ</h2>
+                <div class="w-1/4 h-1 bg-gray-300 mb-10 mx-auto"></div>
+
+                <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
+                    <!-- Columna de la Imagen -->
+                    <div class="md:w-1/3 flex-shrink-0">
+                        <img 
+                            src="https://placehold.co/400x400/ffffff/1f2937?text=Diego" 
+                            alt="Foto de Diego Ferrer" 
+                            class="w-full max-w-xs mx-auto object-cover border-4 border-dashed border-gray-400 p-2 rounded-lg"
+                            onerror="this.onerror=null;this.src='https://placehold.co/400x400/ffffff/1f2937?text=Imagen';">
+                    </div>
+
+                    <!-- Columna del Texto -->
+                    <div class="md:w-2/3 text-center md:text-left">
+                        <p class="text-gray-600 mb-4">
+                            Estudiante de Ingeniería en Ciencias de la Computación con experiencia en desarrollo web y diseño de interfaces modernas. Apasionado por la creación de proyectos digitales, desde aplicaciones funcionales hasta marcas comerciales. Me destaco por mi iniciativa, capacidad de aprendizaje continuo y enfoque en soluciones prácticas orientadas al usuario. Busco oportunidades para aplicar mis conocimientos en entornos dinámicos que impulsen la innovación.
+                        </p>
+                        <p class="text-gray-600 mb-6">
+                            Me especializo en el ecosistema de HTML5, CSS3 y JavaScript, trabajando con tecnologías modernas para crear aplicaciones web rápidas, responsivas y escalables.
+                        </p>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm font-semibold">
+                             <span class="flex items-center justify-center md:justify-start"><i class="fa-solid fa-plus text-blue-500 mr-2"></i> JavaScript (ES6+)</span>
+                            <span class="flex items-center justify-center md:justify-start"><i class="fa-solid fa-plus text-blue-500 mr-2"></i> HTML</span>
+                            <span class="flex items-center justify-center md:justify-start"><i class="fa-solid fa-plus text-blue-500 mr-2"></i> CSS</span>
+                            <span class="flex items-center justify-center md:justify-start"><i class="fa-solid fa-plus text-blue-500 mr-2"></i> C#</span>
+                            <span class="flex items-center justify-center md:justify-start"><i class="fa-solid fa-plus text-blue-500 mr-2"></i> Figma</span>
+                            <span class="flex items-center justify-center md:justify-start"><i class="fa-solid fa-plus text-blue-500 mr-2"></i> Design Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Sección Proyectos ===== -->
+        <section id="projects" class="py-20">
+            <h2 class="text-4xl font-pixel text-gray-900 mb-4">PROYECTOS DESTACADOS</h2>
+            <div class="w-full h-1 bg-gray-300 mb-8"></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Proyecto 1 -->
+                <div class="project-card p-6 flex flex-col">
+                    <h3 class="text-2xl font-pixel text-gray-900 mb-2">Club Cultural Español</h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-grow">
+                        Diseño y desarrollo de la web para una institución cultural, con registro de usuarios, agenda de eventos y la historia del club.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-blue-600 font-semibold mb-4">
+                        <span>HTML</span><span>/</span><span>JS</span><span>/</span><span>PHP</span><span>/</span><span>MySQL</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://diegoferrer1.github.io/club/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600"><i class="fas fa-external-link-alt fa-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="project-card p-6 flex flex-col">
+                    <h3 class="text-2xl font-pixel text-gray-900 mb-2">La Esquina Gastrobar</h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-grow">
+                        Página web para un restaurante, con sistema de menú digital e integración con redes sociales.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-blue-600 font-semibold mb-4">
+                        <span>HTML</span><span>/</span><span>CSS</span><span>/</span><span>JavaScript</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://www.laesquinard.com" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600"><i class="fas fa-external-link-alt fa-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 (Actualizado) -->
+                 <div class="project-card p-6 flex flex-col">
+                    <h3 class="text-2xl font-pixel text-gray-900 mb-2">Colormania</h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-grow">
+                        App para Android que permite generar, guardar y exportar paletas de colores armónicas para proyectos de diseño.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs text-blue-600 font-semibold mb-4">
+                        <span>Android</span><span>/</span><span>Java</span><span>/</span><span>XML</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-blue-600" title="Ver proyecto"><i class="fas fa-external-link-alt fa-lg"></i></a>
+                        <a href="#" download="colormania.apk" class="text-gray-500 hover:text-blue-600" title="Descargar APK"><i class="fas fa-download fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Sección Contacto ===== -->
+        <section id="contact" class="py-20 text-center">
+            <h2 class="text-5xl font-pixel text-gray-900">¿Tienes una idea?</h2>
+            <p class="mt-4 text-gray-600 max-w-lg mx-auto">
+                Estoy disponible para proyectos freelance. Hablemos de cómo podemos crear algo increíble juntos.
+            </p>
+            <div class="mt-8">
+                <a href="mailto:diegoferrer2209@gmail.com" class="border-2 border-blue-600 hover:bg-blue-600 text-blue-600 hover:text-white font-bold py-3 px-8 rounded-none transition-colors duration-300 text-lg">
+                    ENVIAR EMAIL
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="text-center py-6 border-t border-gray-200">
+        <div class="mb-4 flex justify-center space-x-6">
+            <a href="https://github.com/dferrer" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 text-xl"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/dferrer" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 text-xl"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/dferrer" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 text-xl"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="text-gray-500 text-xs font-pixel tracking-widest">DIEGO FERRER // 2024</p>
+    </footer>
+
+    <script>
+        // Lógica para el menú móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+
+</body>
+</html>
